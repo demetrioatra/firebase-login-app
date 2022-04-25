@@ -1,11 +1,10 @@
 package com.devd.projetofirebase;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FormLogin extends AppCompatActivity {
 
@@ -18,12 +17,9 @@ public class FormLogin extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        txt_cadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FormLogin.this, FormCadastro.class);
-                startActivity(intent);
-            }
+        txt_cadastro.setOnClickListener(view -> {
+            Intent intent = new Intent(FormLogin.this, FormCadastro.class);
+            startActivity(intent);
         });
     }
 
