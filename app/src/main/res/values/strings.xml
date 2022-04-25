@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Projeto Firebase</string>
+    <string name="logo">logo</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="txt_cadastro">Crie uma conta clicando aqui</string>
+    <string name="txt_titulo">Cadastre-se</string>
+    <string name="nome">Nome</string>
+    <string name="cadastrar">Cadastrar</string>
+</resources>
