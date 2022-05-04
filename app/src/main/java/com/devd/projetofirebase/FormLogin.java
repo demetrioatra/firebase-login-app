@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FormLogin extends AppCompatActivity {
 
     private TextView txt_cadastro;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
