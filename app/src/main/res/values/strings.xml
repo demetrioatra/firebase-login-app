@@ -8,4 +8,6 @@
     <string name="txt_titulo">Cadastre-se</string>
     <string name="nome">Nome</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="foto">foto</string>
+    <string name="sair_do_app">Sair do App</string>
 </resources>

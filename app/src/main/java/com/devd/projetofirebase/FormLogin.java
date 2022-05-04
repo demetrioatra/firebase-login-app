@@ -16,6 +16,7 @@ public class FormLogin extends AppCompatActivity {
         setContentView(R.layout.activity_form_login);
 
         getSupportActionBar().hide();
+        iniciarComponentes();
 
         txt_cadastro.setOnClickListener(view -> {
             Intent intent = new Intent(FormLogin.this, FormCadastro.class);
