@@ -37,7 +37,8 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/loginContainer"
         app:layout_constraintStart_toStartOf="@+id/loginContainer"
-        app:layout_constraintTop_toTopOf="@+id/loginContainer" />
+        app:layout_constraintTop_toTopOf="@+id/loginContainer"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/edt_senha"
@@ -47,7 +48,8 @@
         android:inputType="numberPassword"
         app:layout_constraintEnd_toEndOf="@+id/loginContainer"
         app:layout_constraintStart_toStartOf="@+id/loginContainer"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
+        android:autofillHints="" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_entrar"
@@ -81,6 +83,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

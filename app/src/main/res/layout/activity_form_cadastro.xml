@@ -8,7 +8,7 @@
     tools:context=".FormCadastro">
 
     <TextView
-        android:id="@+id/txt_titulo"
+        android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_titulo"
@@ -21,11 +21,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/signinContainer"
+        android:id="@+id/registerContainer"
         style="@style/ContainerComponents"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
     <EditText
         android:id="@+id/edt_name"
@@ -33,9 +33,9 @@
         android:drawableEnd="@drawable/ic_usuario"
         android:hint="@string/nome"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/signinContainer"
-        app:layout_constraintStart_toStartOf="@+id/signinContainer"
-        app:layout_constraintTop_toTopOf="@+id/signinContainer"
+        app:layout_constraintEnd_toEndOf="@+id/registerContainer"
+        app:layout_constraintStart_toStartOf="@+id/registerContainer"
+        app:layout_constraintTop_toTopOf="@+id/registerContainer"
         android:autofillHints="" />
 
     <EditText
@@ -44,8 +44,8 @@
         android:drawableEnd="@drawable/ic_email"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/signinContainer"
-        app:layout_constraintStart_toStartOf="@+id/signinContainer"
+        app:layout_constraintEnd_toEndOf="@+id/registerContainer"
+        app:layout_constraintStart_toStartOf="@+id/registerContainer"
         app:layout_constraintTop_toBottomOf="@+id/edt_name"
         android:autofillHints="" />
 
@@ -55,8 +55,8 @@
         android:hint="@string/senha"
         android:inputType="numberPassword"
         android:drawableEnd="@drawable/ic_eye"
-        app:layout_constraintEnd_toEndOf="@+id/signinContainer"
-        app:layout_constraintStart_toStartOf="@+id/signinContainer"
+        app:layout_constraintEnd_toEndOf="@+id/registerContainer"
+        app:layout_constraintStart_toStartOf="@+id/registerContainer"
         app:layout_constraintTop_toBottomOf="@+id/edt_email"
         android:autofillHints="" />
 
@@ -67,6 +67,5 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signinContainer" />
-
+        app:layout_constraintTop_toBottomOf="@+id/registerContainer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
