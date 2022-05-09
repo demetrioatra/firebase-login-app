@@ -25,28 +25,28 @@
         app:layout_constraintEnd_toEndOf="@+id/userContainer"
         app:layout_constraintStart_toStartOf="@+id/userContainer"
         app:layout_constraintTop_toTopOf="@+id/userContainer"
-        android:contentDescription="Ícone do usuario" />
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/userIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_usuario"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/userContainer"
+        android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/userText"
+        android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome do Usuário"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toEndOf="@+id/userIcon"
         app:layout_constraintTop_toBottomOf="@+id/userContainer" />
 
@@ -55,25 +55,26 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_email"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/userIcon"
+        android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/emailText"
+        android:id="@+id/txt_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="email@usuario.com"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toEndOf="@+id/emailIcon"
-        app:layout_constraintTop_toBottomOf="@+id/userText" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <Button
+        android:id="@+id/btn_logoff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -82,5 +83,5 @@
         android:text="@string/sair_do_app"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
     </androidx.constraintlayout.widget.ConstraintLayout>

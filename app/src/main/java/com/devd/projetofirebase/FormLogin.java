@@ -11,12 +11,14 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import java.util.Objects;
 
 public class FormLogin extends AppCompatActivity {
 
-    private EditText editEmail, editPassword;
-    private Button loginButton, registerButton;
+    // Variables
+    private EditText    editEmail,      editPassword;
+    private Button      loginButton,    registerButton;
     private ProgressBar progressBar;
 
     @Override
@@ -25,6 +27,7 @@ public class FormLogin extends AppCompatActivity {
         setContentView(R.layout.activity_form_login);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        // Logic
         setComponents();
 
         loginButton.setOnClickListener(view ->
@@ -40,22 +43,24 @@ public class FormLogin extends AppCompatActivity {
                         .setTextColor(Color.BLACK);
                 snackbar.show();
             }
-            else authenticate();
+            else authenticate(view);
         });
 
-        registerButton.setOnClickListener(view -> startActivity(new Intent(FormLogin.this, FormCadastro.class)));
+        registerButton.setOnClickListener(view ->
+                startActivity(new Intent(FormLogin.this, FormCadastro.class)));
     }
 
-    private void setComponents()
-    {
-        editEmail = findViewById(R.id.edt_email);
-        editPassword = findViewById(R.id.edt_password);
-        loginButton = findViewById(R.id.btn_login);
-        registerButton = findViewById(R.id.btn_register);
-        progressBar = findViewById(R.id.progressBar);
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Logic
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) startIntent();
     }
 
-    private void authenticate()
+    // Authenticate Function
+    private void authenticate(View view)
     {
         String email = editEmail.getText().toString();
         String password = editPassword.getText().toString();
@@ -64,16 +69,42 @@ public class FormLogin extends AppCompatActivity {
         {
             if (task.isSuccessful())
             {
+                // Turn progress bar visible
                 progressBar.setVisibility(View.VISIBLE);
-                new Handler().postDelayed((Runnable) this::startIntent, 3000);
+                // Start activity after 3 seconds
+                new Handler().postDelayed(this::startIntent, 3000);
+            }
+            else
+            {
+                String error;
+
+                try                     { throw Objects.requireNonNull(task.getException()); }
+                catch (Exception e)     { error = "Erro ao acessar"; }
+
+                Snackbar snackbar = Snackbar
+                        .make(view, error, Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(Color.WHITE)
+                        .setTextColor(Color.BLACK);
+                snackbar.show();
             }
         });
     }
 
+    // Start Intent Function
     private void startIntent()
     {
         Intent intent = new Intent(FormLogin.this, TelaPrincipal.class);
         startActivity(intent);
         finish();
+    }
+
+    // Set Components Function
+    private void setComponents()
+    {
+        editEmail = findViewById(R.id.edt_email);
+        editPassword = findViewById(R.id.edt_password);
+        loginButton = findViewById(R.id.btn_login);
+        registerButton = findViewById(R.id.btn_register);
+        progressBar = findViewById(R.id.progressBar);
     }
 }

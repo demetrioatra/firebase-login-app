@@ -23,7 +23,7 @@
         android:contentDescription="@string/logo" />
 
     <View
-        android:id="@+id/loginContainer"
+        android:id="@+id/container"
         style="@style/ContainerComponents"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +35,9 @@
         android:hint="@string/email"
         android:drawableEnd="@drawable/ic_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/loginContainer"
-        app:layout_constraintStart_toStartOf="@+id/loginContainer"
-        app:layout_constraintTop_toTopOf="@+id/loginContainer"
+        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintTop_toTopOf="@+id/container"
         android:autofillHints="" />
 
     <EditText
@@ -46,8 +46,8 @@
         android:hint="@string/senha"
         android:drawableEnd="@drawable/ic_eye"
         android:inputType="numberPassword"
-        app:layout_constraintEnd_toEndOf="@+id/loginContainer"
-        app:layout_constraintStart_toStartOf="@+id/loginContainer"
+        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintStart_toStartOf="@+id/container"
         app:layout_constraintTop_toBottomOf="@+id/edt_email"
         android:autofillHints="" />
 
@@ -55,16 +55,16 @@
         android:id="@+id/btn_login"
         style="@style/Button"
         android:text="@string/entrar"
-        app:layout_constraintEnd_toEndOf="@+id/loginContainer"
-        app:layout_constraintStart_toStartOf="@+id/loginContainer"
+        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintStart_toStartOf="@+id/container"
         app:layout_constraintTop_toBottomOf="@+id/edt_password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_register"
         style="@style/Button"
         android:text="@string/cadastre_se"
-        app:layout_constraintEnd_toEndOf="@+id/loginContainer"
-        app:layout_constraintStart_toStartOf="@+id/loginContainer"
+        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintStart_toStartOf="@+id/container"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <ProgressBar
@@ -76,6 +76,6 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/container" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

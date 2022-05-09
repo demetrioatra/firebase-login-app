@@ -20,9 +20,10 @@ import java.util.Objects;
 
 public class FormCadastro extends AppCompatActivity {
 
-    private EditText editName, editEmail, editPassword;
-    private Button button;
-    String[] messages = { "Preencha todos os campos!", "Cadastro realizado com Sucesso!" };
+    // Variables
+    private EditText    editName, editEmail, editPassword;
+    private Button      button;
+    String[]            messages = { "Preencha todos os campos!", "Cadastro realizado com Sucesso!" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class FormCadastro extends AppCompatActivity {
         setContentView(R.layout.activity_form_cadastro);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        // Logic
         setComponents();
 
         button.setOnClickListener(view ->
@@ -50,14 +52,7 @@ public class FormCadastro extends AppCompatActivity {
         });
     }
 
-    private void setComponents()
-    {
-        editName = findViewById(R.id.edt_name);
-        editEmail = findViewById(R.id.edt_email);
-        editPassword = findViewById(R.id.edt_password);
-        button = findViewById(R.id.btn_register);
-    }
-
+    // Register Function
     private void register(View view)
     {
         String email = editEmail.getText().toString();
@@ -78,6 +73,7 @@ public class FormCadastro extends AppCompatActivity {
             else
             {
                 String error;
+
                 try                                                 { throw Objects.requireNonNull(task.getException()); }
                 catch (FirebaseAuthWeakPasswordException e)         { error = "Digite uma senha de, no mínimo, 6 caracteres"; }
                 catch (FirebaseAuthUserCollisionException e)        { error = "Esta conta ja foi cadastrada"; }
@@ -93,19 +89,28 @@ public class FormCadastro extends AppCompatActivity {
         });
     }
 
+    // Save User Function
     private void saveUser()
     {
         String name = editName.getText().toString();
         String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         Map<String, Object> users = new HashMap<>();
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        DocumentReference documentReference = firestore.collection("Users").document(userID);
 
         users.put("name", name);
-
-        DocumentReference documentReference = firestore.collection("Users").document(userID);
 
         documentReference.set(users)
                 .addOnSuccessListener(unused -> Log.d("firestore", "Sucesso ao salvar dados"))
                 .addOnFailureListener(e -> Log.d("firestore_error", "Erro ao salvar dados" + e));
+    }
+
+    // Set Components Function
+    private void setComponents()
+    {
+        editName = findViewById(R.id.edt_name);
+        editEmail = findViewById(R.id.edt_email);
+        editPassword = findViewById(R.id.edt_password);
+        button = findViewById(R.id.btn_register);
     }
 }
